@@ -1,8 +1,27 @@
+:root {
+    --deep-space-black: #0D0D0D;
+    --platinum-white: #E5E5E5;
+    --gunmetal-grey: #2B2B2B;
+    --royal-blue: #4169E1;
+    --emerald-green: #50C878;
+    --ivory: #FFFFF0;
+    --onyx-black: #353839;
+    --smoke-white: #F5F5F5;
+    --ash-grey: #B2BEB5;
+    --sky-blue: #87CEEB;
+    --crimson-red: #DC143C;
+}
+
 .nav{
     grid-area: nav;
     background-color: darkslategrey;
 }
 
 .item {
-    color: white;
+    color: var(--smoke-white);
+    text-decoration: none;
+}
+
+.item:hover {
+    color: var(--sky-blue);
 }

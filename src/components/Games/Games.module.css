@@ -1,0 +1,9 @@
+:root {
+    --smoke-white: #F5F5F5;
+    --ash-grey: #B2BEB5;
+    --sky-blue: #87CEEB;
+}
+
+.dialogs {
+    color: var(--smoke-white);
+}
