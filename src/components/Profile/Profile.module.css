@@ -1,0 +1,15 @@
+.content {
+    grid-area: content;
+    background-color:  var(--black-shade);
+}
+
+.bigpicture {
+    width: 350px;
+    height: 350px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

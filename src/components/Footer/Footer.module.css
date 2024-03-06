@@ -1,0 +1,13 @@
+:root {
+    --black-shade: #000000;
+    --white-shade: #FFFFFF;
+    --grey-shade: #7B7B7B;
+    --deep-blue: #003366;
+    --accent-green: #004D40;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--grey-shade);
+    color: var(--white-shade);
+}

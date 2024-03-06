@@ -1,0 +1,27 @@
+:root {
+    --deep-space-black: #0D0D0D;
+    --platinum-white: #E5E5E5;
+    --gunmetal-grey: #2B2B2B;
+    --royal-blue: #4169E1;
+    --emerald-green: #50C878;
+    --ivory: #FFFFF0;
+    --onyx-black: #353839;
+    --smoke-white: #F5F5F5;
+    --ash-grey: #B2BEB5;
+    --sky-blue: #87CEEB;
+    --crimson-red: #DC143C;
+}
+
+/* Example Usage */
+body {
+    background-color: var(--platinum-white);
+    color: var(--deep-space-black);
+}
+
+a:hover, button:hover {
+    background-color: var(--sky-blue);
+}
+
+.error-message {
+    color: var(--crimson-red);
+}
