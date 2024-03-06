@@ -8,9 +8,9 @@ const MyPosts = () => {
             <textarea></textarea>
             <button className={s.button}>Add post</button>
             <button className={s.button}>Remove</button>
-            <Post/>
-            <Post/>
-            <Post/>
+            <Post message='Hi, how are you?'/>
+            <Post message="Good, glad to see you!"/>
+            <Post message="Let`s play!"/>
         </div>
     );
 };

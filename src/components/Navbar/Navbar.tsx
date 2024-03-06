@@ -11,10 +11,10 @@ const Navbar = () => {
                 <a>Messages</a>
             </div>
             <div className={s.item}>
-                <a>News</a>
+                <a>Play</a>
             </div>
             <div className={s.item}>
-                <a>Music</a>
+                <a>Games</a>
             </div>
             <div className={s.item}>
                 <a>Settings</a>
