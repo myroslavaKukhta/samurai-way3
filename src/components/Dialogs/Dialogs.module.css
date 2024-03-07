@@ -5,5 +5,20 @@
 }
 
 .dialogs {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     color: var(--smoke-white);
+}
+
+.dialog {
+
+}
+
+
+.messages {
+
+}
+
+.message {
+
 }
