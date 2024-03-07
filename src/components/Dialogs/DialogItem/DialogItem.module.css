@@ -1,0 +1,25 @@
+:root {
+    --smoke-white: #F5F5F5;
+    --ash-grey: #B2BEB5;
+    --sky-blue: #87CEEB;
+}
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    color: var(--smoke-white);
+}
+
+.dialog {
+
+}
+
+
+.messages {
+
+}
+
+.message {
+
+}

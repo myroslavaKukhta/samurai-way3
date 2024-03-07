@@ -1,47 +1,28 @@
 import React from 'react';
 import s from "./Dialogs.module.css";
-import {NavLink} from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
 
-interface DialogsProps {
-    //
-}
+const Dialogs: React.FC = () => {
+    let dialogs = [
+        { id: 1, name: 'Horse' },
+        { id: 2, name: 'Pawn' },
+        { id: 3, name: 'Officer' }
+    ];
 
-interface DialogItemProps {
-    name: string;
-    id: string;
-}
+    let messages = [
+        { id: 1, message: 'Hi!' },
+        { id: 2, message: 'Would you like to play chess with me?' },
+        { id: 3, message: 'Hello, I`d like to play!' }
+    ];
 
-const DialogItem: React.FC<DialogItemProps> = ({ name, id }) => {
-    return (
-        <div className={s.dialogItem}>
-            <NavLink to={`/dialogs/${id}`} className={s.dialog}>{name}</NavLink>
-        </div>
-    );
-};
+    let dialogsElements = dialogs.map(d => <DialogItem key={d.id.toString()} name={d.name} id={d.id.toString()}/>);
+    let messagesElements = messages.map(m => <Message key={m.id} message={m.message}/>);
 
-interface MessageItemProps {
-    message: string;
-}
-
-const Message: React.FC<MessageItemProps> = ({ message }) => {
-    return (
-        <div className={s.message}>{message}</div>
-    );
-};
-
-const Dialogs: React.FC<DialogsProps> = () => {
     return (
         <div className={s.dialogs}>
-            <div>
-            <DialogItem name='Horse' id='1'/>
-            <DialogItem name='Pawn' id='2'/>
-            <DialogItem name='Officer' id='3'/>
-            </div>
-        <div>
-            <Message message='Hi!'/>
-            <Message message='Would you like to play chess with me?'/>
-            <Message message='Hello, I`d like to play!'/>
-        </div>
+            <div>{dialogsElements}</div>
+            <div>{messagesElements}</div>
         </div>
     );
 };

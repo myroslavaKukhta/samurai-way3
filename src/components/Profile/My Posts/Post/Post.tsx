@@ -6,11 +6,11 @@ interface PostProps {
     message: string;
 }
 
-const Post: React.FC<PostProps> = (props) => {
+const Post: React.FC<PostProps> = ({ message }) => {
     return (
         <div>
-            <img className={s.avatar} src={pawn} alt={pawn}/>
-            <div className={s.item}>{props.message}</div>
+            <img className={s.avatar} src={pawn} alt="pawn"/>
+            <div className={s.item}>{message}</div>
         </div>
     );
 };

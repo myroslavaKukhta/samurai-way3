@@ -11,6 +11,8 @@ import Play from "./components/Play/Play";
 import Games from "./components/Games/Games";
 import Settings from "./components/Settings/Settings";
 
+//lesson 26 finished
+
 function App() {
     return (
         <BrowserRouter>
