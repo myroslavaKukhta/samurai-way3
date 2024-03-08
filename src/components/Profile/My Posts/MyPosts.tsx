@@ -2,14 +2,17 @@ import React from 'react';
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts: React.FC = () => {
-    let postsData = [
-        { id: 1, post: 'Hi, how are you?' },
-        { id: 2, post: "Good, glad to see you!" },
-        { id: 3, post: "Let`s play!" },
-    ];
+interface PostsProps {
+    postsData: {
+        id: number;
+        post: string;
+    }[];
+}
 
-    let postsElements = postsData.map(p => <Post key={p.id} message={p.post}/>);
+const MyPosts: React.FC<PostsProps> = (props) => {
+
+
+    let postsElements = props.postsData.map(p => <Post key={p.id} message={p.post}/>);
 
     return (
         <div>
