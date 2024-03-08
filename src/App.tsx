@@ -9,29 +9,31 @@ import Games from "./components/Games/Games";
 import Settings from "./components/Settings/Settings";
 import Footer from "./components/Footer/Footer";
 import s from "./App.module.css";
+import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
 // lesson 28
-interface DialogsProps {
-    dialogs: {
-        id: number;
-        name: string;
-    }[];
-    messages: {
-        id: number;
-        message: string;
-    }[];
+
+interface DialogItem {
+    id: number;
+    name: string;
 }
 
-interface PostsProps {
-    postsData: {
-        id: number;
-        post: string;
-    }[];
+interface MessageItem {
+    id: number;
+    message: string;
 }
 
-// Об'єднання DialogsProps і PostsProps в один інтерфейс
-interface AppProps extends PostsProps, DialogsProps {}
+interface PostItem {
+    id: number;
+    post: string;
+}
 
-const App: React.FC<AppProps> = ({ postsData, dialogs, messages }) => {
+interface AppState {
+    dialogs: DialogItem[];
+    messages: MessageItem[];
+    postsData: PostItem[];
+}
+
+const App: React.FC<AppState> = ({ dialogs, messages, postsData }) => {
     return (
         <BrowserRouter>
             <div className={s.appContent}>
