@@ -10,7 +10,7 @@ import Settings from "./components/Settings/Settings";
 import Footer from "./components/Footer/Footer";
 import s from "./App.module.css";
 
-// lesson 28
+// lesson 33, 10.04min
 interface Dialog {
     id: number;
     name: string;
@@ -45,6 +45,7 @@ const App: React.FC<AppProps> = ({ state, addPost }) => {
                 <Navbar />
                 <div className={s.content}>
                     <Routes>
+                        debugger;
                         <Route path="/profile" element={<Profile postsData={state.postsData} addPost={addPost} />} />
                         <Route path="/dialogs" element={<Dialogs dialogs={state.dialogs} messages={state.messages} />} />
                         <Route path="/play" element={<Play />} />

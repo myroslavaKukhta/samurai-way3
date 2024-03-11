@@ -7,7 +7,7 @@ interface PostsProps {
         id: number;
         post: string;
     }[];
-    addPost: (postMessage: string) => void; // Додано цю лінію
+    addPost: (postMessage: string) => void; // Додаємо цю лінію
 }
 
 const MyPosts: React.FC<PostsProps> = ({ posts }) => {
