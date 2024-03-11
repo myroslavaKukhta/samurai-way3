@@ -3,17 +3,19 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 interface PostsProps {
-    postsData: {
+    posts: {
         id: number;
         post: string;
     }[];
+    addPost: (postMessage: string) => void; // Додано цю лінію
 }
 
-const MyPosts: React.FC<PostsProps> = (props) => {
+const MyPosts: React.FC<PostsProps> = ({ posts }) => {
 
+    // Виправлення: передаємо id як пропс у компонент Post
+    let postsElements = posts.map(p => <Post key={p.id} id={p.id} message={p.post}/>);
 
-    let postsElements = props.postsData.map(p => <Post key={p.id} message={p.post}/>);
-    const onAddHandler = ()=> {alert('Hey')};
+    const onAddHandler = () => {alert('Hey')};
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     return (

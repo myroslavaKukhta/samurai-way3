@@ -9,31 +9,35 @@ import Games from "./components/Games/Games";
 import Settings from "./components/Settings/Settings";
 import Footer from "./components/Footer/Footer";
 import s from "./App.module.css";
-import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
-// lesson 28
 
-interface DialogItem {
+// lesson 28
+interface Dialog {
     id: number;
     name: string;
 }
 
-interface MessageItem {
+interface Message {
     id: number;
     message: string;
 }
 
-interface PostItem {
+interface Post {
     id: number;
     post: string;
 }
 
 interface AppState {
-    dialogs: DialogItem[];
-    messages: MessageItem[];
-    postsData: PostItem[];
+    dialogs: Dialog[];
+    messages: Message[];
+    postsData: Post[];
 }
 
-const App: React.FC<AppState> = ({ dialogs, messages, postsData }) => {
+interface AppProps {
+    state: AppState;
+    addPost: (postMessage: string) => void;
+}
+
+const App: React.FC<AppProps> = ({ state, addPost }) => {
     return (
         <BrowserRouter>
             <div className={s.appContent}>
@@ -41,8 +45,8 @@ const App: React.FC<AppState> = ({ dialogs, messages, postsData }) => {
                 <Navbar />
                 <div className={s.content}>
                     <Routes>
-                        <Route path="/profile" element={<Profile postsData={postsData} />} />
-                        <Route path="/dialogs" element={<Dialogs dialogs={dialogs} messages={messages} />} />
+                        <Route path="/profile" element={<Profile postsData={state.postsData} addPost={addPost} />} />
+                        <Route path="/dialogs" element={<Dialogs dialogs={state.dialogs} messages={state.messages} />} />
                         <Route path="/play" element={<Play />} />
                         <Route path="/games" element={<Games />} />
                         <Route path="/settings" element={<Settings />} />
