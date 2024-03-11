@@ -13,11 +13,13 @@ const MyPosts: React.FC<PostsProps> = (props) => {
 
 
     let postsElements = props.postsData.map(p => <Post key={p.id} message={p.post}/>);
+    const onAddHandler = ()=> {alert('Hey')};
+    let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     return (
         <div>
-            <textarea></textarea>
-            <button className={s.button}>Add post</button>
+            <textarea ref={newPostElement}></textarea>
+            <button className={s.button} onClick={onAddHandler}>Add post</button>
             <button className={s.button}>Remove</button>
             {postsElements}
         </div>
