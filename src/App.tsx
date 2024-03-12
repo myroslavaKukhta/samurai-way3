@@ -9,35 +9,16 @@ import Games from "./components/Games/Games";
 import Settings from "./components/Settings/Settings";
 import Footer from "./components/Footer/Footer";
 import s from "./App.module.css";
-
-// lesson 33, 10.04min
-interface Dialog {
-    id: number;
-    name: string;
-}
-
-interface Message {
-    id: number;
-    message: string;
-}
-
-interface Post {
-    id: number;
-    post: string;
-}
-
-interface AppState {
-    dialogs: Dialog[];
-    messages: Message[];
-    postsData: Post[];
-}
+import state, { addPost, changeNewPostText } from "./redux/state";
+import { AppState } from './redux/state';
 
 interface AppProps {
     state: AppState;
     addPost: (postMessage: string) => void;
+    changeNewPostText: (newText: string) => void;
 }
 
-const App: React.FC<AppProps> = ({ state, addPost }) => {
+const App: React.FC<AppProps> = ({ state, addPost, changeNewPostText }) => {
     return (
         <BrowserRouter>
             <div className={s.appContent}>
@@ -45,8 +26,11 @@ const App: React.FC<AppProps> = ({ state, addPost }) => {
                 <Navbar />
                 <div className={s.content}>
                     <Routes>
-                        debugger;
-                        <Route path="/profile" element={<Profile postsData={state.postsData} addPost={addPost} />} />
+                        <Route path="/profile" element={
+                            <Profile
+                                postsData={state.postsData}
+                                addPost={addPost}
+                                changeNewPostText={changeNewPostText} />} />
                         <Route path="/dialogs" element={<Dialogs dialogs={state.dialogs} messages={state.messages} />} />
                         <Route path="/play" element={<Play />} />
                         <Route path="/games" element={<Games />} />
@@ -60,4 +44,5 @@ const App: React.FC<AppProps> = ({ state, addPost }) => {
 };
 
 export default App;
+
 

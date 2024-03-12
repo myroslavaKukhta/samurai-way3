@@ -1,3 +1,15 @@
+type Listener = () => void;
+
+let listeners: Listener[] = [];
+
+export const subscribe = (listener: Listener) => {
+    listeners.push(listener);
+};
+
+export const notifySubscribers = () => {
+    listeners.forEach(listener => listener());
+};
+
 export interface Dialog {
     id: number;
     name: string;
@@ -13,14 +25,14 @@ export interface PostType {
     post: string;
 }
 
-export interface State {
+export interface AppState {
     dialogs: Dialog[];
     messages: Message[];
     postsData: PostType[];
     newPostText: string;
 }
 
-let state: State = {
+let state: AppState = {
     dialogs: [
         {id: 1, name: 'Horse'},
         {id: 2, name: 'Pawn'},
@@ -46,6 +58,12 @@ export let addPost = (postMessage: string): void => {
         post: postMessage
     };
     state.postsData.push(newPost);
+    notifySubscribers();
+}
+
+export let changeNewPostText = (newText: string): void => {
+    state.newPostText = newText;
+    notifySubscribers();
 }
 
 export default state;

@@ -1,16 +1,16 @@
 import React from 'react';
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import {PostType} from "../../../redux/state";
+
 
 interface PostsProps {
-    posts: {
-        id: number;
-        post: string;
-    }[];
+    posts: PostType[];
     addPost: (postMessage: string) => void;
+    changeNewPostText: (newText: string) => void;
 }
 
-const MyPosts: React.FC<PostsProps> = ({ posts, addPost }) => {
+const MyPosts: React.FC<PostsProps> = ({ posts, addPost, changeNewPostText }) => {
     let postsElements = posts.map(p => <Post key={p.id} id={p.id} message={p.post}/>);
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
