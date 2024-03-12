@@ -1,29 +1,30 @@
-interface Dialog {
+export interface Dialog {
     id: number;
     name: string;
 }
 
-interface Message {
+export interface Message {
     id: number;
     message: string;
 }
 
-export interface PostType { // Змінено назву з Post на PostType
+export interface PostType {
     id: number;
     post: string;
 }
 
-interface State {
+export interface State {
     dialogs: Dialog[];
     messages: Message[];
-    postsData: PostType[]; // Використовуємо оновлений тип PostType
+    postsData: PostType[];
+    newPostText: string;
 }
 
 let state: State = {
     dialogs: [
-        { id: 1, name: 'Horse' },
-        { id: 2, name: 'Pawn' },
-        { id: 3, name: 'Officer' },
+        {id: 1, name: 'Horse'},
+        {id: 2, name: 'Pawn'},
+        {id: 3, name: 'Officer'},
     ],
     messages: [
         { id: 1, message: 'Hi!' },
@@ -35,6 +36,7 @@ let state: State = {
         { id: 2, post: "Good, glad to see you!" },
         { id: 3, post: "Let`s play!" },
     ],
+    newPostText: 'itkam'
 };
 
 export let addPost = (postMessage: string): void => {

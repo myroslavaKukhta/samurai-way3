@@ -7,16 +7,20 @@ interface PostsProps {
         id: number;
         post: string;
     }[];
-    addPost: (postMessage: string) => void; // Додаємо цю лінію
+    addPost: (postMessage: string) => void;
 }
 
-const MyPosts: React.FC<PostsProps> = ({ posts }) => {
-
-    // Виправлення: передаємо id як пропс у компонент Post
+const MyPosts: React.FC<PostsProps> = ({ posts, addPost }) => {
     let postsElements = posts.map(p => <Post key={p.id} id={p.id} message={p.post}/>);
-
-    const onAddHandler = () => {alert('Hey')};
     let newPostElement = React.createRef<HTMLTextAreaElement>();
+
+    const onAddHandler = () => {
+        if (newPostElement.current) {
+            let text = newPostElement.current.value;
+            addPost(text);
+            newPostElement.current.value = '';
+        }
+    };
 
     return (
         <div>
