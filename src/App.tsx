@@ -12,6 +12,8 @@ import s from "./App.module.css";
 import state, { addPost, changeNewPostText } from "./redux/state";
 import { AppState } from './redux/state';
 
+
+//lesson 36 14.32min
 interface AppProps {
     state: AppState;
     addPost: (postMessage: string) => void;

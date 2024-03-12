@@ -14,7 +14,7 @@ const Profile: React.FC<ProfileProps> = ({ postsData, addPost, changeNewPostText
     return (
         <div className={s.profile}>
             <ProfileInfo />
-            <MyPosts posts={postsData} addPost={addPost} changeNewPostText={changeNewPostText }/>
+            <MyPosts posts={postsData} addPost={addPost} changeNewPostText={changeNewPostText}/>
         </div>
     );
 };

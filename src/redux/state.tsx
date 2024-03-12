@@ -57,7 +57,8 @@ export let addPost = (postMessage: string): void => {
         id: newId,
         post: postMessage
     };
-    state.postsData.push(newPost);
+
+    state.postsData = [...state.postsData, newPost];
     notifySubscribers();
 }
 
